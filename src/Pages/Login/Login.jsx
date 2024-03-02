@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios, { Axios } from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Audio } from "react-loader-spinner";
 import { UserContext } from "../../Context/UserContext";
 
@@ -40,6 +40,7 @@ export default function Login() {
       setLoader(false);
       setError(null);
       navigate("/");
+      window.location.reload();
     }
   }
 
@@ -99,26 +100,28 @@ export default function Login() {
             <div className="alert alert-danger">{formik.errors.password}</div>
           )}
         </div>
-
-        <button
-          type="submit"
-          disabled={!formik.isValid}
-          className="btn bg-main"
-        >
-          {loader ? (
-            <Audio
-              height="50"
-              width="50"
-              color="#fff"
-              ariaLabel="audio-loading"
-              wrapperStyle={{}}
-              wrapperClass="wrapper-class"
-              visible={true}
-            />
-          ) : (
-            "Submit"
-          )}
-        </button>
+        <div className="d-flex justify-content-between align-items-center">
+          <button
+            type="submit"
+            disabled={!formik.isValid}
+            className="btn bg-main"
+          >
+            {loader ? (
+              <Audio
+                height="50"
+                width="50"
+                color="#fff"
+                ariaLabel="audio-loading"
+                wrapperStyle={{}}
+                wrapperClass="wrapper-class"
+                visible={true}
+              />
+            ) : (
+              "Submit"
+            )}
+          </button>
+          <Link to={"/resetPassword"}>Forgot Password ?</Link>
+        </div>
       </form>
     </div>
   );

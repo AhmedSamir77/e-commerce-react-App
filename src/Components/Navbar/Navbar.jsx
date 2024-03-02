@@ -14,6 +14,7 @@ export default function Navbar() {
     localStorage.removeItem("userToken");
     setUserToken(null);
     navigate("/login");
+    window.location.reload();
   }
 
   return (
@@ -53,6 +54,11 @@ export default function Navbar() {
                   Categories
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to={"/brands"} className="nav-link">
+                  Brands
+                </Link>
+              </li>
             </ul>
           )}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
@@ -80,9 +86,11 @@ export default function Navbar() {
                 <li className="nav-item position-relative">
                   <Link to={"/cart"} className="nav-link">
                     <i className="fa fa-shopping-cart"></i>
-                    <span className="bg-main p-1 rounded position-absolute top-0 end-0">
-                      {numOfCartItems}
-                    </span>
+                    {numOfCartItems > 0 && (
+                      <span className="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-success">
+                        {numOfCartItems}
+                      </span>
+                    )}
                   </Link>
                 </li>{" "}
               </>

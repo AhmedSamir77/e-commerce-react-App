@@ -16,7 +16,9 @@ export default function LayOut() {
 
   return (
     <>
-      <Navbar />
+      <div style={{ marginBottom: "80px" }}>
+        <Navbar />
+      </div>
       <Outlet></Outlet>
       <Toaster />
       <Footer />

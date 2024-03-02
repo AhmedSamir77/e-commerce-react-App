@@ -16,6 +16,8 @@ import Details from "./Components/Details/Details";
 import CartContextProvider from "./Context/CartContext";
 import Checkout from "./Components/Checkout/Checkout";
 import AllOrders from "./Components/AllOrders/AllOrders";
+import Brands from "./Pages/Brands/Brands";
+import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 
 function App() {
   const routers = createBrowserRouter([
@@ -48,6 +50,14 @@ function App() {
           ),
         },
         {
+          path: "brands",
+          element: (
+            <ProtectedRoute>
+              <Brands />
+            </ProtectedRoute>
+          ),
+        },
+        {
           path: "cart",
           element: (
             <ProtectedRoute>
@@ -63,6 +73,10 @@ function App() {
               <Details />
             </ProtectedRoute>
           ),
+        },
+        {
+          path: "resetPassword",
+          element: <ResetPassword />,
         },
         {
           path: "checkout",
@@ -91,11 +105,11 @@ function App() {
 
   return (
     <CartContextProvider>
-    <QueryClientProvider client={queryClient}>
-      <UserContextProvider>
-        <RouterProvider router={routers}></RouterProvider>;
-      </UserContextProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <UserContextProvider>
+          <RouterProvider router={routers}></RouterProvider>;
+        </UserContextProvider>
+      </QueryClientProvider>
     </CartContextProvider>
   );
 }

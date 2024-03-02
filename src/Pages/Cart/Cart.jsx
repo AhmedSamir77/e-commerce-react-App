@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
   const [cartDetails, setCartDetails] = useState({});
+  const [loading, setLoading] = useState(true);
   let {
     getCart,
     deleteProductFromCart,
@@ -34,8 +35,15 @@ export default function Cart() {
 
   async function getCartDetails() {
     let { data } = await getCart();
-    setNumOfCartItems(data.numOfCartItems);
-    setCartDetails(data);
+    setLoading(false);
+    if (data?.numOfCartItems) {
+      setNumOfCartItems(data?.numOfCartItems);
+      setCartDetails(data);
+    } else {
+      console.log(data);
+      setNumOfCartItems(0);
+    }
+
     //  console.log(data);
   }
 
@@ -112,6 +120,21 @@ export default function Cart() {
           </div>
         </div>
       ) : (
+        !loading && (
+          <>
+            <div className="container my-5">
+              <div className="mx-auto bg-main-light p-5">
+                <h1 className="mb-4">Cart Shop</h1>
+                <div className="d-flex  justify-content-center align-items-center">
+                  <h3>Your Cart Is Empty</h3>
+                </div>
+              </div>
+            </div>{" "}
+          </>
+        )
+      )}
+
+      {loading && (
         <BallTriangle
           height={100}
           width={100}
