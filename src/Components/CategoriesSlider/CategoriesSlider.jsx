@@ -23,10 +23,10 @@ export default function CategoriesSlider() {
     <>
       <Slider {...settings}>
         {data?.data?.data.map((ele) => (
-          <>
+          <div key={ele._id}>
             <img height={300} className="w-100" src={ele.image} alt="" />
             <h4>{ele.name}</h4>
-          </>
+          </div>
         ))}
       </Slider>
     </>
