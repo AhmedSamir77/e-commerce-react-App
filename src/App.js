@@ -32,6 +32,8 @@ function App() {
 
         { path: "register", element: <Register /> },
         { path: "login", element: <Login /> },
+        { path: "e-commerce-react-App", element: <Login /> },
+
         {
           path: "products",
           element: (
