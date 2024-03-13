@@ -53,6 +53,14 @@ a:hover {
   background-color: var(--lightBgColor) !important;
 }
 
-.main-btn{
+.main-btn {
   background-color: var(--bgColor);
 }
+
+.footer-style {
+  font-family: "Dancing Script", cursive;
+}
+
+
+
+

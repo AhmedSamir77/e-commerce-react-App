@@ -1,6 +1,9 @@
 import React from "react";
 import "./NotFound.module.css";
+import notfound from './../../assets/images/error.svg';
 
 export default function NotFound() {
-  return <div>Not Found</div>
+  return <>
+ <img src={notfound} className="w-75" alt="" />
+  </>
 }
