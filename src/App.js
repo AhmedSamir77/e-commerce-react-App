@@ -27,10 +27,17 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home />,
+          element: (
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          ),
         },
 
-        { path: "register", element: <Register /> },
+        {
+          path: "register",
+          element: <Register />,
+        },
         { path: "login", element: <Login /> },
         { path: "e-commerce-react-App", element: <Login /> },
 
