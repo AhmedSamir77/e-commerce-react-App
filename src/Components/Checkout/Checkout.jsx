@@ -8,10 +8,9 @@ export default function Checkout() {
   let { onlinePayment } = useContext(CartContext);
 
   async function payment(values) {
-   
     let { data } = await onlinePayment(values);
     console.log(data);
-    window.location.href = data.session.url;
+    window.location.href = data.session.url; //from api
   }
   let formik = useFormik({
     initialValues: {
