@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet";
 export default function Details() {
   const [details, setDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  let { addToCart ,setNumOfCartItems } = useContext(CartContext);
+  let { addToCart, setNumOfCartItems } = useContext(CartContext);
 
   var settings = {
     dots: true,
@@ -69,9 +69,8 @@ export default function Details() {
         ) : (
           <div className="row align-items-center">
             <Helmet>
-                <meta charSet="utf-8" />
-                <title>{details.title}</title>
-               
+              <meta charSet="utf-8" />
+              <title>{details.title}</title>
             </Helmet>
             <div className="col-md-4">
               <Slider {...settings}>
